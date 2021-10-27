@@ -5,7 +5,7 @@ Geometric Folding Algorithms
 --------
 ### `bachelors-thesis/misc/papers/`
 
-The book covers the whole field that studies nets and foldings of polytopes. It recaps all the articles published in this field to present its up-to-date state in the most complete fashion. The book examines if it is possible to reconstruct a polyhedron given the collection of polygons it is glued from; it describes which configuration of polygons produce which polyhedra and how many ways there are to glue a given configuration of polygons into a polyhedron. It also covers different known ways of folding and gluing that are of use and importance in the field.
+The book covers the whole field that studies nets and foldings of polytopes. It recaps all the articles published in this field to present its up-to-date state in the most complete fashion. The book examines if it is possible to reconstruct a polyhedron given the collection of polygons it is glued from; it describes which configurations of polygons produce which polyhedra and how many ways there are to glue a given configuration of polygons into a polyhedron. It also covers different known ways of folding and gluing that are of use and importance in the field.
 
 The book is equipped with comprehensive illustrative material and in-depth explanations and is recommended for anyone willing to pursue the study of foldings and computational geometry in general.
 
