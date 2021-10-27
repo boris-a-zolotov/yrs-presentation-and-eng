@@ -17,7 +17,7 @@ Incremental Voronoi diagrams
 
 The article studies combinatorial changes that a Voronoi Diagram for _n_ sites undergoes when a new site is inserted. First, it introduces the _flarb_ which is the operation that embodies all the changes — deletions and insertions of edges — that happen to the graph of the diagram. The flarb is, to simplify, deletion of all the edges of the graph inside the given curve and adding to the graph all the edges along this curve.
 
-Then the article proves a very important bound: it turns out that there is only _O_`(sqrt(`_n_`))` combinatorial changes in the graph per flarb, if several flarbs are applied consequtively. The proof is carried out by introducing a potential function. This bound is of huge importance for the study of dynamic Voronoi diagrams. The article is recommended for anyone pursuing them.
+Then the article proves a very important bound: it turns out that there is only _O_(`sqrt`(_n_)) combinatorial changes in the graph per flarb, if several flarbs are applied consequtively. The proof is carried out by introducing a potential function. This bound is of huge importance for the study of dynamic Voronoi diagrams. The article is recommended for anyone pursuing them.
 
 ******
 
