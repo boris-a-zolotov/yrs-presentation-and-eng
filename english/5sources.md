@@ -25,7 +25,7 @@ The Visibility Center of a Polygon
 --------
 ### `cse.buffalo.edu/socg21/files/YRF-Booklet.pdf`
 
-Demaine, Enumerating Foldings and Unfoldings
+Enumerating Foldings and Unfoldings Between Polygons and Polytopes
 --------
 ### `masters-thesis/assets`
 
