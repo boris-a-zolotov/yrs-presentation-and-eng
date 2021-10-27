@@ -27,7 +27,7 @@ The Visibility Center of a Polygon
 
 The authors introduce the concept of the _visibility center_ of a polygon. The problem of finding such a point arises from the practical task of positioning several sensors and a guard inside a polygonal room. The visibility center is the point _c_ such that the sum of lengths of the paths from _c_ to sensors inside the polygon is minimal.
 
-The authors suggest an algorithm that finds the visibility center in time _O_((_m_+_n_)`log`(_m_+_n_)), where _m_ is the number of sensors and _n_ is the number of vertices of the polygons. This running time is considered very efficient in the studies of algorithms.
+The authors suggest an algorithm that finds the visibility center in time _O_((_m_+_n_)`log`(_m_+_n_)), where _m_ is the number of sensors and _n_ is the number of vertices of the polygon. This running time is considered very efficient in the studies of algorithms.
 
 The article is presented at the Young Researchers Forum, part of Symposium on Computational Geometry, the most prestigious conference in the field.
 
