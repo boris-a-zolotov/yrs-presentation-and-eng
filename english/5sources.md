@@ -37,7 +37,7 @@ Enumerating Foldings and Unfoldings Between Polygons and Polytopes
 --------
 ### `masters-thesis/assets`
 
-This article studies the configurations of polygons that yield several different polyhedra as a result of gluing. Usually it is hard to tell which polyhedron is obtained by the gluing, since the proof of Alexandrov's theorem that guarantees the existence of such polyhedron is highly non-constructive. Nevertheless, the authors of the article have found and described several series of interesting and important examples of gluings and polyhedra corresponding to them. For example, they show a polygon with _n_ vertices that has 2^(_Ω_(_n_)) combinatorially distinct alexandrov gluings.
+This article studies the configurations of polygons that yield several different polyhedra as a result of gluing. Usually it is hard to tell which polyhedron is obtained by the gluing, since the proof of Alexandrov's theorem that guarantees the existence of such polyhedron is highly non-constructive. Nevertheless, the authors of the article have found and described several series of interesting and important examples of gluings and polyhedra corresponding to them. For example, they show a polygon with _n_ vertices that has 2^(_Ω_(_n_)) combinatorially distinct Alexandrov gluings.
 
 The article is equipped with truly spectacular illustrative material and is recommended for anyone as a joyful scientific reading.
 
