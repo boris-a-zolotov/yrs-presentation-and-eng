@@ -9,6 +9,8 @@ The book covers the whole field that studies nets and foldings of polytopes. It 
 
 The book is equipped with comprehensive illustrative material and in-depth explanations and is recommended for anyone willing to pursue the study of foldings and computational geometry in general.
 
+******
+
 Incremental Voronoi diagrams
 --------
 ### `arxiv.org/pdf/1603.08485.pdf/`
