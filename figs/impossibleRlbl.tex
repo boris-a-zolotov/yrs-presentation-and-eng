@@ -1,0 +1,45 @@
+\begin{center}
+	\begin{forest} for tree={circle,draw,white,minimum size=0.7ex,%
+		inner sep=0.4ex,l=1.5cm,s sep=2.7mm}
+	   [ ,alias=ROOT
+	      [ ,fill=bluetri!65!gray,alias=RA
+	         [ ,before drawing tree={x-=0.7cm}]
+	         [ ,before drawing tree={x-=0.7cm}]
+	         [ ,before drawing tree={x-=0.35cm},alias=A
+	            [ ,fill=bluetri!65!gray,alias=RB] [ ] [ ]]
+	      ] [ [ ]]
+	      [
+	         [ [ ]]   [ ]   [ [ ] [ ]]   [ ]
+	      ]
+	   ]
+	  	\node[left=-0.05cm of A]{$a$};
+		\node[right=-0.05cm of A]{$a$};
+		\node[left=-0.05cm of RA]{$s_j$};
+		\node[left=-0.05cm of RB]{$s_j$};
+	\end{forest}
+\qquad
+	\begin{forest} for tree={circle,draw,white,minimum size=0.7ex,%
+		inner sep=0.4ex,l=1.5cm,s sep=2.7mm}
+	   [ ,alias=ROOT
+	      [
+	         [ ,before drawing tree={x-=0.45cm}]
+	         [ ,before drawing tree={x-=0.45cm}]
+	         [ ,fill=bluetri!65!gray,alias=RA
+	            [ ,fill=bluetri!65!gray]
+	            [ ,fill=bluetri!65!gray]
+	            [ ]]
+	      ] [ [ ]]
+	      [ ,alias=A
+	         [ [ ]]
+	         [ ]
+	         [ ,fill=bluetri!65!gray,alias=RB
+	            [ ,fill=bluetri!65!gray] [ ,fill=bluetri!65!gray]]
+	         [ ,before drawing tree={x+=0.45cm}]
+	      ]
+	   ]
+		\node[left=-0.05cm of RA]{$s_j$};
+		\node[right=-0.05cm of RB]{$s_j$};
+		\node[left=-0.05cm of A]{$a$};
+		\node[right=-0.05cm of A]{$a$};
+	\end{forest}
+\end{center}
