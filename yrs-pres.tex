@@ -1,0 +1,166 @@
+\documentclass[17pt]{extarticle}
+
+\usepackage{extsizes}
+
+\usepackage[paperheight=9.6cm,paperwidth=17cm,margin=0.8cm]{geometry}
+\parindent=0mm \parskip=3.2mm \linespread{1.15}
+
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{graphicx,xcolor,tikz}
+\usetikzlibrary{positioning}
+\usepackage[linguistics]{forest}
+\usepackage{enumerate,enumitem}
+
+\setlist{leftmargin=*}
+\usepackage[russian]{babel}
+
+\definecolor{fon}{HTML}{0f1622} % {2f3642}
+\definecolor{bluetri}{RGB}{45,155,190}
+
+\pagecolor{fon}
+\color{white}
+
+\input{f/mspec}
+
+\DeclarePairedDelimiter\lr{(}{)}
+\newcommand{\newslide}[1]{\newpage \begin{center} \large #1 \end{center}}
+\newcommand{\tr}[1]{\textcolor{red}{#1}}
+
+\DeclareMathOperator{\rlbl}{relabel}
+\DeclareMathOperator{\size}{size}
+\DeclareMathOperator{\length}{length}
+\DeclareMathOperator{\Rel}{Rel}
+\DeclareMathOperator{\Rlbl}{Relabel}
+\DeclareMathOperator{\Inse}{Insert}
+
+\begin{document}
+
+\ \\ [1cm]
+
+\begin{center} {\Large Dynamic Voronoi Diagrams} \bigskip \\
+	{\large B. Zolotov, Young Researchers Seminar} \end{center}
+
+\newslide{Voronoi Diagrams} \vspace{-6mm}
+
+\begin{center}
+	\includegraphics[height=5.3cm]{figs/voronoiCircle-dark}
+\end{center}
+
+\newslide{Voronoi Diagram}
+
+\begin{itemize}
+	\item Every point belongs to the region of the closest {\it site},
+	\item Has clear applications everywhere,
+	\item Can be generalized for other metrics.
+\end{itemize}
+
+\newslide{Explicit Dynamic Voronoi Diagrams}
+
+There can be \(Ω (n)\) changes in coordinates \\
+per addition of a site, so time \\
+better than \(O (n)\) is impossible.
+
+\newslide{Implicit Dynamic Voronoi Diagrams}
+
+($=$ Nearest neighbor query)
+
+\begin{itemize}
+	\item Kaplan, Mulzer, Roditty, Seiferth, Sharir 2020
+	\item Chan, 2010
+\end{itemize}
+
+\newslide{Combinatorial Dynamic Voronoi Diagrams}
+
+Maintain the graph of the Voronoi diagram. \\
+Maybe there is a sublinear algorithm for \\
+inserting a site; the coordinates of all \\
+the vertices can be output in \(O(n)\).
+
+\newslide{Flarb}
+
+\newslide{Combinatorial changes} \vspace{-7mm}
+
+Only those cells need combinatorial changes \\
+whose Voronoi circles enclose the new site.
+
+\begin{center}
+	\includegraphics[height=4.7cm]{figs/identChanges-dark}
+\end{center}
+
+\newslide{Chan's structure} \vspace{-5mm}
+
+Given a set of points in \( \mathbb R^3 \), find extreme of them in given direction: polylog time for addition and queries.
+
+\begin{itemize}
+	\item Smallest enclosing circle
+	\item Width of a set; convex layers
+	\item {\it Report a circle containing \(q\)}
+\end{itemize}
+
+\newslide{Potential function}
+\[ Φ = λ \cdot \sum\limits_{i=1}^n
+   \min\left\{
+      \size(f_i), \sqrt{n}
+   \right\}\]
+
+When a flarb is applied, all cells that \\
+undergo combinatorial changes reduce in size.
+
+\newslide{\(\sqrt{n}\) lower bound}
+
+\begin{center}
+	\includegraphics[width=0.85\textwidth]{figs/sqrtn}
+\end{center}
+
+\newslide{VD for several points and a line}
+
+\newslide{Relabel operation}
+
+\newslide{Beach line and sequences / trees}
+
+\newslide{The order of relabels}
+
+\input{figs/impossibleRlbl}
+
+\newslide{Possible set of relabels} \vspace{-15mm}
+
+\input{figs/posRlbl} \vspace{-2mm}
+
+Nodes that are relabelled form a union of subtrees, \\
+whose roots are children of a single node \(R\).
+
+\newslide{Inserts and sizes of nodes / the length} \vspace{-6mm}
+
+	An {\it insert} is a relabel that does not reduce the size of the node it is applied to. \vspace{-3mm}
+
+\begin{itemize}
+	\item When an insert is applied to a sequence, \\
+	   the length of the sequence increases by 1.
+	\item When a relabel that is not an insert is applied \\
+	   to a sequence, the length of the sequence \\
+	   may decrease, but by at most 2.
+\end{itemize}
+
+\newslide{Potential function}
+   \[
+	Φ = 3 \cdot \sum\limits_{i=1}^n
+	\min\left\{ \size(s_i), 2 \sqrt{n} \right\}
+	- \length (S).
+   \]
+
+This accounts for the changes in the sizes of nodes \\
+and in the length of the sequence.
+
+\newslide{Further research}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
