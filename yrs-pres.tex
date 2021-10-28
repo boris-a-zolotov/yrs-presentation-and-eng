@@ -76,7 +76,15 @@ Maybe there is a sublinear algorithm for \\
 inserting a site; the coordinates of all \\
 the vertices can be output in \(O(n)\).
 
-\newslide{Flarb}
+\newslide{Flarb} \vspace{-6mm}
+
+When inserting a new site into a Voronoi diagram, \\
+you basically throw out everything inside \\
+new site's cell and replace it with a cycle. \\
+This is called a flarb.
+
+The point is, you do not need to change \\
+every cell to implement a flarb.
 
 \newslide{Combinatorial changes} \vspace{-7mm}
 
@@ -114,9 +122,29 @@ undergo combinatorial changes reduce in size.
 
 \newslide{VD for several points and a line}
 
+\begin{center}
+	\includegraphics[width=0.65\textwidth]{figs/bl-ex-dark}
+\end{center}
+
 \newslide{Relabel operation}
 
-\newslide{Beach line and sequences / trees}
+\begin{center}
+	\includegraphics[width=0.65\textwidth]{figs/combchange-dark}
+\end{center}
+
+\newslide{Beach line and D—S sequences} \vspace{-7mm}
+
+This configuration of parabolas corresponds \\
+to the sequence \( fabacdafghgkgf \).
+
+\begin{center}
+	\includegraphics[height=4.6cm]{figs/parab-config-dark}
+\end{center}
+
+\newslide{D—S sequences and trees} \vspace{-12mm}
+\[ fabacdafghgkgf \]
+
+\input{figs/parabconfig-tex}
 
 \newslide{The order of relabels}
 
@@ -153,14 +181,8 @@ and in the length of the sequence.
 
 \newslide{Further research}
 
-
-
-
-
-
-
-
-
-
+It suspiciously seems like you can only \\
+have significantly less than $\sqrt{n}$ \\
+relabels per letter…
 
 \end{document}
