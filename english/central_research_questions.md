@@ -1,0 +1,5 @@
+﻿When authoring a Ph. D. thesis, what should be under control is the correspondence between the question that is posed and the answer that is provided. It should be seen not only by the writer, but also by the readers without any distortion. This is also the only thing checked by the examiners, they cannot come up with any questions outside the path between these two.
+
+Often the Ph. D. students pick a very narrow and simple or a very broad and complicated topic, which yields poorer quality of their dissertation, even in the case when it is completed and defended somehow. After all, the Ph. D. topic is an accompanying characterisation of its author that appears in all their résumés and is discussed at every dinner table.
+
+When choosing a topic for Ph. D., a large effort should be dedicated towards motivating why exactly this topic is important and for what. If there is no precise answer for this question, and all the supportive arguments are like «the people did this for some reason before me», the student is likely to lose interest in their Ph. D. at some point during their term.
