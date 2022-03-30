@@ -33,3 +33,50 @@
 17. Classical Ph. D
 
 18. Professional doctorate
+
+════════════════════════════════
+
+19. Leveled planar graph — a graph drawn on the plane whose vertices are on several parallel lines
+
+20. Layered pathwidth — the maximum size of the intersection between a layer and a bag in a decomposition of a graph
+
+20. Outerplanar graph — a planar graph drawn in a way such that all the vertices are in the outer (unbounded) face
+
+21. Squaregraphs — 4-faces, each vertex either in outer face or has degree 4+
+
+22. Breadth first layering — each vertex is marked by its distance to the source vertex
+
+23. Specify an ordering — assign consequent natural (positive integer) numbers to objects
+
+24. Net — a simple non-overlapping unfolding of a polyhedron
+
+25. Unit-speed parametrization — parametrization by the distance to the origin
+
+26. Osculating circle — the one with the same curvature
+
+27. Unit normal vector — perpendicular, of length 1
+
+28. Principal curvatures — the highest and the lowest cuvatures of a surface at a point
+
+29. A flaw of sorts — same things having different properties
+
+30. Subtended — bounded, contracted
+
+31. Intrinsic — defined from an internal view
+
+32. Geodesic — measured inside surface
+
+33. Elliptic, hyperbolic points — with respect to curvature
+
+34. Angle deficit, Gaussian curvature — the difference between 2*pi and the facial angle at a point
+
+35. Meager evidence — sparse, insufficient
+
+36. Lament — to complain
+
+37. Paucity — sparcity, poverty
+
+38. Star unfolding, source unfolding — methods of unfolding a polyhedron that (supposedly) produce a non-overlapping net
+
+39. Overlap penetration — the ratio of a penetration to the diameter
+
