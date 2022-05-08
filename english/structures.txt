@@ -96,5 +96,17 @@ Polyhedron
 
 UDC Problem
 
+Erdős–Rényi graph
+
+Prisoner's dilemma
+
+Hawk-dove game
+
+MAXQ
+
+Schnyder labeling
+
+
+
 
 
