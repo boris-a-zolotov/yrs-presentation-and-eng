@@ -80,3 +80,21 @@
 
 39. Overlap penetration — the ratio of a penetration to the diameter
 
+════════════════════════════════
+
+Follow suit
+
+Convex hull
+
+Vertex-edge resolution
+
+Disk-link drawing
+
+Gluing
+
+Polyhedron
+
+UDC Problem
+
+
+

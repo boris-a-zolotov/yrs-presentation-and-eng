@@ -1,0 +1,7 @@
+	Edge-vertex resolution of a planar drawing is an important measure that reflects a minimal separation between a vertex and an edge, allowing the vertices to be objects of non-zero size rather than points.
+
+	The authors present an algorithm that for any planar 3-connected graph computes its drawing with the edge-vertex resolution equal to 1/2 (that is, a disk-link drawing).
+
+	What is more, the drawing is computed in time linear in the number of vertices of the graph, and the vertices of the drawing are located on a linear-size grid (which is proved to be optimal).
+
+	The algorithm is based on the earlier result of Chrobak and Kant who had a similar problem but did not obey the requirement for the drawing to be disc-link.

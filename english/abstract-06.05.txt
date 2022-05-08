@@ -1,0 +1,9 @@
+	Unit Disc Cover (UDC) problem asks for the minimal number of unit disks covering a given set of points and the placements of these circles.
+
+	The problem is proved to be NP-hard; however, there exist plenty of polynomial and pseudopolynomial approximation algorithms solving it.
+
+	The authors implement several known algorithms for UDC and compare their efficiency. They also present a new 7-approximation algorithm running in linear time on average and two heuristics that help speed it up.
+
+	The algorithm devised by the authors covers the query set with circles aligned to the sqrt(2)-sized grid. Then it is proved that the algorithm outputs not more than seven times the number of circles contained in the optimal answer.
+
+	The authors conclude that the algorithm by Liu and Lu (2014) is optimal for practical applications, yet their algorithm overperforms it in certain cases.
