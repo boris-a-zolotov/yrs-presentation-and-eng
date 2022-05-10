@@ -143,34 +143,34 @@ by the two ends of every edge
 
 ════════════════════════════════
 
-70. Hull signature
+70. Hull signature — an ordered list of vertices of the convex hull of a set
 
-71. Dynamic nearest neighbor structure
+71. Dynamic nearest neighbor structure — a structure supporting insertion of a site and the query of the nearest site to a given point
 
-72. Voronoi circle
+72. Voronoi circle — a circle passing through three adjacent Voronoi sites
 
-73. Sweep line
+73. Sweep line — a line that is moved through plane used to construct several geometric structures
 
-74. Combinatorial change
+74. Combinatorial change — a change in the graph of a structure, not only in location of its vertices
 
-75. Affirm
+75. Affirm — show that you obtained a message and have no objections
 
-76. Visibility center
+76. Visibility center — a point such that the maximum geodesic distance from it to _see_ any point in the set is minimized
 
-77. Book embedding
+77. Book embedding — a drawing of a graph on several half-planes glued along their boundary
 
-78. Abuse of notation
+78. Abuse of notation — using the same denotion for objects of different generality
 
-79. Winding number
+79. Winding number — the number of counterclockwise rotations of a curve around a point
 
-80. Young diagram
+80. Young diagram — a way to demonstrate integer partitions
 
-81. Bipartite graph
+81. Bipartite graph — a graph colored in black and white in a way that each edge has endpoints of distinct colors
 
-82. Spanning tree
+82. Spanning tree — a tree obtained by deletion of several edges from a graph, but on the same set of vertices
 
-83. Building greedily
+83. Building greedily — taking a maximal possible set on each step
 
-84. Minor-closed class
+84. Minor-closed class — a class such that if G is in it, every minor of G is in it
 
-85. Dual graph
+85. Dual graph — a graph whose vertices are faces of G and whose edges are edges incident to these faces
