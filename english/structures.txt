@@ -105,3 +105,40 @@
 50. MAXQ — a method of reinforcement learning taking next action depending on the output of max-nodes and q-nodes
 
 51. Schnyder labeling — an orientation on a maximal planar graph where each vertex has 3 outcoming edges
+
+52. Canonical ordering of a planar graph — an ordering that helps draw the graph: each next vertex is in the outer face connected with a countinuous segment of previous vertices
+
+53. LR-partition — a partition of all the back-edges with respect to a DFS-ordering into two sets. It helps test planarity of a graph
+
+54. n-connected graph — a graph that remains connected after removal of n-1 vertices
+
+55. Closed rectangle-of-influence drawing — a drawing such that no vertex lies in the axis-parallel rectangle defined
+by the two ends of every edge
+
+56. Bold drawing — vertices are drawn as disks of radius r and edges as rectangles of width w
+
+57. Planar embedding — an equivalence class of topologically-equivalent planar drawings
+
+58. Straight-line drawing — all the arcs are straight-line segments
+
+59. Grid drawing — straight-line drawing where vertices have integer coordinates
+
+60. Point density — ratio of |P| to the area of its bounding box
+
+61. Track layout — partition of a graph into tracks, which are independent sets, and edges between them do not cross
+
+62. Tree decomposition — an assignment of bags such that endpoints of any edge share a bag, and each vertex is in a continuous subtree of bags
+
+63. Path decomposition — a tree decomposition but the tree is a path
+
+64. Treewidth — minimal size of a maximal bag -1
+
+65. Minor — a graph obtained by deleting edges / vertices and contracting edges
+
+66. Euler characteristic — V-E+F
+
+67. Euler genus — 1 - chi/2
+
+69. General position — assumptions about data that hold almost often and help evade degenerate cases
+
+════════════════════════════════
