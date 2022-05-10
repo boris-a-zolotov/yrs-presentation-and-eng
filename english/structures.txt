@@ -142,3 +142,35 @@ by the two ends of every edge
 69. General position — assumptions about data that hold almost often and help evade degenerate cases
 
 ════════════════════════════════
+
+70. Hull signature
+
+71. Dynamic nearest neighbor structure
+
+72. Voronoi circle
+
+73. Sweep line
+
+74. Combinatorial change
+
+75. Affirm
+
+76. Visibility center
+
+77. Book embedding
+
+78. Abuse of notation
+
+79. Winding number
+
+80. Young diagram
+
+81. Bipartite graph
+
+82. Spanning tree
+
+83. Building greedily
+
+84. Minor-closed class
+
+85. Dual graph
