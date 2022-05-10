@@ -174,3 +174,17 @@ by the two ends of every edge
 84. Minor-closed class — a class such that if G is in it, every minor of G is in it
 
 85. Dual graph — a graph whose vertices are faces of G and whose edges are edges incident to these faces
+
+════════════════════════════════
+
+86. Geodesic center —  a point that minimizes the maximum geodesic distance from it to any point of the set
+
+87. Chord — a segment inside a polygon intersecting its boundary only at endpoints
+
+88. Geodesically convex subsect — if two points lie in it, so does geodesci shortest path between them
+
+89. Pareto optimality — a situation where no individual or preference criterion can be better off without making at least one individual or preference criterion worse off
+
+90. Nash equilibrium — each player is assumed to know the equilibrium strategies of the other players, and no one has anything to gain by changing only one's own strategy
+
+91. Oracle — a thing that is somehow able to solve a complicated problem in constant time
