@@ -82,31 +82,26 @@
 
 ════════════════════════════════
 
-Follow suit
+40. Follow suit — to act conformly
 
-Convex hull
+41. Convex hull — a minimal convex polygon containing a given set of points
 
-Vertex-edge resolution
+42. Vertex-edge resolution — a minimal separation between a vertex and a non-incident edge in a drawing
 
-Disk-link drawing
+43. Disk-link drawing — a drawing with vert-edg resolution of at least 1/2
 
-Gluing
+44. Gluing — a pair of a set of polygons and rules specifying how to glue their boundaries
 
-Polyhedron
+45. Polyhedron — a union of convex polyhedra, which are intersections of half-spaces
 
-UDC Problem
+46. UDC Problem — a problem of covering a given set of points with minimal number of unit disks
 
-Erdős–Rényi graph
+47. Erdős–Rényi graph — a randomly generating graph with sufficient connectivity
 
-Prisoner's dilemma
+48. Prisoner's dilemma — a noncooperative game about betraying or keeping silent
 
-Hawk-dove game
+49. Hawk-dove game — a noncooperative game about showing off or retreating
 
-MAXQ
+50. MAXQ — a method of reinforcement learning taking next action depending on the output of max-nodes and q-nodes
 
-Schnyder labeling
-
-
-
-
-
+51. Schnyder labeling — an orientation on a maximal planar graph where each vertex has 3 outcoming edges
