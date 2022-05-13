@@ -88,21 +88,21 @@
 
 42. Vertex-edge resolution — a minimal separation between a vertex and a non-incident edge in a drawing
 
-43. Disk-link drawing — a drawing with vert-edg resolution of at least 1/2
+43. Disk-link drawing — a drawing with vertex-edge resolution of at least 1/2
 
 44. Gluing — a pair of a set of polygons and rules specifying how to glue their boundaries
 
 45. Polyhedron — a union of convex polyhedra, which are intersections of half-spaces
 
-46. UDC Problem — a problem of covering a given set of points with minimal number of unit disks
+46. UDC Problem — a problem of covering a given set of points with the minimal number of unit disks
 
-47. Erdős–Rényi graph — a randomly generating graph with sufficient connectivity
+47. Erdős–Rényi graph — a randomly generated graph with sufficient connectivity
 
 48. Prisoner's dilemma — a noncooperative game about betraying or keeping silent
 
 49. Hawk-dove game — a noncooperative game about showing off or retreating
 
-50. MAXQ — a method of reinforcement learning taking next action depending on the output of max-nodes and q-nodes
+50. MAXQ — a method of reinforcement learning that takes the next action depending on the output of max-nodes and q-nodes
 
 51. Schnyder labeling — an orientation on a maximal planar graph where each vertex has 3 outcoming edges
 
@@ -112,14 +112,13 @@
 
 54. n-connected graph — a graph that remains connected after removal of n-1 vertices
 
-55. Closed rectangle-of-influence drawing — a drawing such that no vertex lies in the axis-parallel rectangle defined
-by the two ends of every edge
+55. Closed rectangle-of-influence drawing — a drawing such that no vertex lies in the axis-parallel rectangle defined by two ends of every edge
 
 56. Bold drawing — vertices are drawn as disks of radius r and edges as rectangles of width w
 
 57. Planar embedding — an equivalence class of topologically-equivalent planar drawings
 
-58. Straight-line drawing — all the arcs are straight-line segments
+58. Straight-line drawing — a drawing where all the arcs are straight-line segments
 
 59. Grid drawing — straight-line drawing where vertices have integer coordinates
 
@@ -149,11 +148,11 @@ by the two ends of every edge
 
 72. Voronoi circle — a circle passing through three adjacent Voronoi sites
 
-73. Sweep line — a line that is moved through plane used to construct several geometric structures
+73. Sweep line — a line that is moved through the plane used to construct several geometric structures
 
-74. Combinatorial change — a change in the graph of a structure, not only in location of its vertices
+74. Combinatorial change — a change in the graph of a structure, not only in the location of its vertices
 
-75. Affirm — show that you obtained a message and have no objections
+75. Affirm — show that one has obtained a message and has no objections
 
 76. Visibility center — a point such that the maximum geodesic distance from it to _see_ any point in the set is minimized
 
@@ -181,10 +180,22 @@ by the two ends of every edge
 
 87. Chord — a segment inside a polygon intersecting its boundary only at endpoints
 
-88. Geodesically convex subsect — if two points lie in it, so does geodesci shortest path between them
+88. Geodesically convex subset — a subset such that if two points lie in it, so does the geodesic shortest path between them
 
 89. Pareto optimality — a situation where no individual or preference criterion can be better off without making at least one individual or preference criterion worse off
 
 90. Nash equilibrium — each player is assumed to know the equilibrium strategies of the other players, and no one has anything to gain by changing only one's own strategy
 
 91. Oracle — a thing that is somehow able to solve a complicated problem in constant time
+
+92. Winning strategy — a sequence of actions that depends on a position in a game that makes a player win the game
+
+93. DFS — graph traversal that first goes as deep as possible along the edges
+
+94. BFS — graph traversal that considers all the vertice's neighbors immediately after this vertex
+
+95. Manifold — a topological space with continuous base that is locally homeomorphic to Euclidean space
+
+96. Base — a set of sets such that any open set of the topology can be represented as a union of the sets in the base
+
+97. Curry—Howard isomorphism — a mapping between habitable types and provable statements
