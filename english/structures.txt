@@ -199,3 +199,39 @@
 96. Base — a set of sets such that any open set of the topology can be represented as a union of the sets in the base
 
 97. Curry—Howard isomorphism — a mapping between habitable types and provable statements
+
+════════════════════════════════
+
+98. Unit-disk graph — a graph for a set of vertices in the plane that only has edges of unit length
+
+99. Series-parallel graph — a graph with two terminal vertices that is formed by application of composition or parallel composition
+
+100. Tree-apex graph — a graph that is a tree with a vertex added that is connected to each leaf
+
+101. Apex graph — a graph that can be made planar by removing a single vertex
+
+102. Dent — an unplanned piece of curvature on a metal sheet left behind by a miscalculated impact
+
+103. Primary root — a generator of the multiplication group of residuies modulo p (which is, in fact, cyclic)
+
+104. Quadratic residue — a residue congruent to the square of an integer number modulo n
+
+105. Euclidean algorithm — an algorithm to find the greatest common divisor of a pair of numbers or polynomials that does not rely on the prime decomposition
+
+106. Determinant — a number assigned to a matrix that behaves in a certain way under addition or permutation of rows
+
+107. Permutation — a bijection between a finite set and itself
+
+108. Sign — a homomorphism from a group to {-1,1}
+
+109. Homomorphism — a linear map, i. e. a map preserving the structure
+
+110. Arrangement — the subdivision of the plane into cells, edges and vertices induced by a given set of lines
+
+111. Heavy path decomposition — a decomposition of a tree into paths that is used to implement link-cut tree
+
+112. Splay tree — a tree where each vertex is raised to the root before any operation is carried out on it
+
+113. B-tree — a balanced search tree with a varying number of descendants of each vertex
+
+114. AVL-tree — the default balanced binary search tree that demands rotations at certain vertices in order to stay balanced
