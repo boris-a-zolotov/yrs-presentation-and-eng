@@ -235,3 +235,47 @@
 113. B-tree — a balanced search tree with a varying number of descendants of each vertex
 
 114. AVL-tree — the default balanced binary search tree that demands rotations at certain vertices in order to stay balanced
+
+════════════════════════════════
+
+115. Range searching — asking to return all pieces of data in a given interval.
+
+116. Output-sensitive algorithm — an algorithm such that one has to take into consideration its output to estimate its running time.
+
+117. Kd-tree — a tree used for range searching in which adjacent nodes split the data according to the dimensions of the space that are alternating
+
+118. Amortised — evaluated on average during large number of consecutive queries
+
+119. Sublinear — estimated by o(n)
+
+120. Median — a number in a set such that exactly a half of the set's numbers are smaller than it
+
+121. Recurrence — a way to introduce a function such that the value f(n) is calculated using values on smaller arguments
+
+122. Canonical subset of v — subset of points stored in the leaves of the subtree rooted at a node v
+
+123. Fractional cascading — a technique to improve the running time of a range searching tree
+
+124. Squaring search — a way to find an upper bound for the answer by considering 2^2^k at each step. This way logarithms of the query double at each step.
+
+125. Kuratowski's problem — a problem of determining how many different sets one can obtain using Cl and Int operations
+
+126. Composite-number space — a space in which pairs of points are sorted lexicographically
+
+127. Point location query — given a map and a query point specified by its coordinates, find the region of the map containing it
+
+128. Planar subdivision — a structure of cells, edges and vertices covering the plane.
+
+129. Vertical slab — a stripe inside which there are no vertices
+
+130. Trapesoidal map — a subdivision whose cells are trapezoids with vertical bases or triangles
+
+131. Incremental algorithm — an algorithm constructing a structure adding one site after another, rather than considering all sites at once. It is usually slower than an offline algorithm.
+
+132. Topology — a collection of sets that are to be called open. It satisfies certain properties: any union of open sets is an open set.
+
+133. Advisory board — a group of people making decisions.
+
+134. Voronoi assignment model — the model where every point is assigned to the nearest site
+
+135. Cartesian coordinates — a system assigning a pair of numbers to each point in the plane
