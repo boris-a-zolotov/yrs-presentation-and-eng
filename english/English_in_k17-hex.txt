@@ -1,0 +1,48 @@
+obtained - полученный
+convex - выпуклый
+by folding - при сворачивании
+gluing - склейка/склеивать
+shape - форма
+doubly-covered - наложенные друг на друга
+simpilicial shape - многогранник, составленный из треугольников / симплексов
+flat shapes - плоские формы, видимо развертки
+latter ones - для последних
+remaining - остаточный?
+polygon - многоугольник
+polyhedron - многогранник
+boundary - граница
+states - утверждает
+pattern - модель/схема
+yield - дает
+curvature - кривизна
+face - грань
+vertex - вершина
+incident to - смежных, неравноправных
+interior angle - внутренний угол
+facial - угол на грани
+unique - единственный
+in this manner - в такой манере/конкоетным образом
+nevertheless - тем не менее
+notoriously - мерзко ужасно
+approximation - приближение
+complexity - сложность
+restrict - ограничить
+setting - условия
+thus - таким образом / то есть/так что
+fusing - соединяются
+extend - распространять
+imply - подразумевать
+crease line - линия сгиба
+quadrilaterals - четырехугольники
+sequence - последовательность
+distinguish between - различать
+adjacent - соседний, равноправный
+coincide - совпадать
+a number of distinct - количество различных
+composed of - составлен из
+tight bound - неулучшаемое
+as opposed to - в отличие от
+iteratively - многократно
+consecutive - подряд идущие
+boundary - граница
+intersect - пересекать
