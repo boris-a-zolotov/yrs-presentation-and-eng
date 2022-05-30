@@ -252,7 +252,7 @@
 
 121. Recurrence — a way to introduce a function such that the value f(n) is calculated using values on smaller arguments
 
-122. Canonical subset of v — subset of points stored in the leaves of the subtree rooted at a node v
+122. Canonical subset of v — the subset of points stored in the leaves of the subtree rooted at a node v
 
 123. Fractional cascading — a technique to improve the running time of a range searching tree
 
@@ -362,19 +362,19 @@
 
 178. Geodesic center — a point of the set such that maximal geodesic distance from it to a point of the set is minimised
 
-179. Noncooperative game — a game where players take theirs turns simultaneously, and the prize is split immediately afterwards
+179. Noncooperative game — a game where players take their turns simultaneously, and the prize is split immediately afterwards
 
 180. Network — a graph with a large number of vertices and a set of rules that apply to its connectivity
 
-181. PCB — a printed contact board that is used for connecting several electronic devies. Is comprised of several sheets on which tracks are laid
+181. PCB — a printed contact board that is used for connecting several electronic devices. It is comprised of several sheets on which tracks are laid
 
-182. Delaunay triangulation — a triangulation in a plane such that circumcircle of any triangle does not contain any vertices but of this triangle
+182. Delaunay triangulation — a triangulation in the plane such that the circumcircle of any triangle does not contain any vertices but of this triangle
 
-183. Euclidean shortest path problem — a problem of conecting two points in a Euclidean space (with polyhedral obstacles) by a shortest path
+183. Euclidean shortest path problem — a problem of connecting two points in a Euclidean space (with polyhedral obstacles) by a shortest path
 
 184. Mesh — a subdivision of an area into cells of simple shapes
 
-185. Ray tracing problem — given a set of objects in space, produce a data structure that efficiently tells which object a query ray intersects first
+185. Ray tracing problem — given a set of objects in space, produce a data structure that efficiently outputs which object a query ray intersects first
 
 186. Flipping — an operation replacing one diagonal of a quadrilateral in a triangulation with the other diagonal
 
@@ -388,9 +388,9 @@
 
 191. Delaunay refinement — adding vertices to a triangulation in a way such that the triangulation obeys certain quality requirements afterwards.
 
-192. Dirichlet principle — a statement concerning not being able to fit n+1 pigeons into n holes
+192. Pigeonhole principle — a statement concerning not being able to fit n+1 pigeons into n holes
 
-193. Osculating circle — circle passing through the point of a curve that has the same curvature as the curve at this point
+193. Osculating circle — the circle passing through the point of a curve that has the same curvature as the curve at this point
 
 194. Source vertex — a vertex in an oriented graph with no incoming edges
 
@@ -402,6 +402,6 @@
 
 198. Regular graph — a graph in which all the vertices have the same degree
 
-199. Flow on a graph — assigning a number and an orientation to each edge of the graph such that sum of the numbers at each vertex is zero
+199. Flow on a graph — an assignment of a number and an orientation to each edge of the graph such that the sum of the numbers at each vertex is zero
 
 200. Hashing — assigning certain numbers to strings in such a way that it becomes easy to check if two long strings differ
