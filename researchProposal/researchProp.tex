@@ -1,0 +1,220 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{f420} \usepackage[linguistics]{forest}
+
+\title{Algorithms for Incremental Voronoi Diagrams}
+\author{{\scshape Zolotov} Boris}
+\date{\today}
+
+\begin{document}
+
+\section{Introduction}
+
+Computational geometry studies computations on discrete geometric objects such as arrangements, diagrams, foldings and drawings. In particular one of its main interests is to design algorithms to construct such objects and data structures that store them efficiently.
+
+The most crucial and defining concept applied in all those constructions is {\itshape distance:} whatever is studied, there is always some underlying metric that describes the object in question and defines its properties. It can be just the Euclidean metric, or some polyhedral metric, or any other metric that corresponds to a surface or a folding of a polygon.
+
+We will be considering three different types of distance metrics. The Euclidean metric in~$\mathbb{R}^2$ gives rise to the ordinary Voronoi diagrams, and we are interested in algorithms that allow for fast updates of a Voronoi diagram that is stored explicitly. We also consider polyhedral metrics of the spaces induced by gluing $n$ congruent regular polygons edge to edge, and we propose a way to classify all such spaces in time polynomial in $n$. Finally, PCB-s are of our interest, which are unions of disjoint planes each equipped with a certain metric.
+
+\section{Literature Review}
+
+Even though there are many well-known algorithms that construct the Voronoi diagram for a given family of sites~\cite{DBLP:books/el/00/AurenhammerK00}, the problem of making a Voronoi diagram dynamic, i.~e.~implementing changes to it when a new point site is inserted, has only drawn attention in the implicit case: maintaining implicit Voronoi diagram can be done in very little time~\cite{DBLP:journals/jacm/Chan10,KaplanMRSS17,Chan19}. Maintaining a Voronoi diagram explicitly has not yet been considered.
+
+The worst one can expect is that when a new site is inserted, the number of updates in a Voronoi diagram (i.~e.~vertices and edges that change) is linear. This can happen for every insertion if we consider an embedded diagram and store the coordinates of all the vertices.
+
+The situation improves if we consider {\itshape the graph} of the Voronoi diagram that is subject to combinatorial changes: no coordinates matter, it is just deletion or addition of edges that is performed. In Allen et al.~\cite{DBLP:journals/dcg/AllenBIL17} it was proved that when a new site is inserted to a Voronoi diagram, only $O(\sqrt{n})$ combinatorial changes happen to the graph of the diagram. This opened a possibility to find a sublinear algorithm that finds and implements combinatorial changes in an explicitly stored graph of the Voronoi diagram.
+
+There is a known algorithm that is sublinear in $n$ (which is the number of sites) that does exactly that. The algorithm has running time of $\Ot (n^{3/4})$, which still does not achieve the $O(\sqrt{n})$ bound on the number of changes, that is why the quest for a better algorithm is still open.
+
+Another type of metrics and distances that can be often seen in computational geometry is polyhedral metrics and geodesic distances. A question concerning them that has been standing for a long time already is the Alexandrov's problem of finding a convex polyhedron corresponding to a given polyhedral metric. There is almost no hope of solving this problem exactly for an arbitrary polyhedral metric, that is why several special cases are considered in literature~\cite{ddlop99,DO07,DDLO02,kl17-hex,alz-penta-jip}. 
+
+\subsection{Voronoi diagrams}
+
+We begin with standard definitions related to Voronoi diagrams and their basic properties. A detailed treatment of Voronoi diagrams and their applications can be found in~\cite{aklvd}. Let $S \coloneqq \{s_1, s_2, \ldots, s_N\}$ be a set of $N$ distinct points in $\br^2$; these points are called \emph{sites}. Let $\mathrm{dist} (\cdot, \cdot)$ denote the Euclidean distance between two points in  $\br^2$. We assume that the sites in $S$ are in {\itshape general position}, that is, no four sites lie on a common circle.
+
+\begin{definition} The \emph{Voronoi diagram} of $S$ is the subdivision of $\br^2$ into $N$ {cells}, called \emph{Voronoi cells}, one cell for each site in $S$, such that a point $q$ lies in the Voronoi cell of a site $s_i$ if and only if \\
+$\mathrm{dist} (q, s_i) < \mathrm{dist} (q, s_j)$ for each $s_j \in S$ with $j \ne i$. 
+\end{definition}
+
+Let  $f_i$ denote the Voronoi cell of a site $s_i$. Edges of the Voronoi diagram, called \emph{Voronoi edges,} are portions of bisectors between two sites which are the common boundary of the corresponding Voronoi cells. \emph{Voronoi vertices} are points where at least three Voronoi cells meet. The \emph{Voronoi circle} of a Voronoi vertex $v$ is the circle passing through the sites whose cells are incident to $v$, see Figure~\ref{fig:voronoiCircle}. Vertex $v$ is the center of its Voronoi circle.
+
+Since the sites are in the general position, each Voronoi vertex has degree three. Each Voronoi edge is either a segment or a ray and the graph of the Voronoi diagram formed by its edges and vertices is planar and connected.
+
+\subsubsection{Combinatorial Changes to the Voronoi Diagram and the Flarb Operation}
+\label{sec:defflarb}
+
+We now overview the definitions and results from Allen et al.~\cite{DBLP:journals/dcg/AllenBIL17} that we need to present our approach. In order to prove the $\Theta(\noh)$ bound on the number of combinatorial changes caused by insertion of a site, a graph operation called \emph{flarb} is introduced.
+
+Let $G$ be a planar 3-regular graph embedded in $\br^2$ without edge crossings (edges are not necessarily straight-line). Let $\mC$ be a simple closed Jordan curve in $\br^2$. 
+
+\begin{definition} 
+Curve $\mC$ is called \emph{flarbable} for $G$ if: \end{definition}
+
+\begin{itemize}
+	\item the graph induced by vertices inside the interior of $\mC$ is connected,
+	\item $\mC$ intersects each edge of $G$ either at a single point or not at all,
+	\item $\mC$ passes through no vertex of $G$, and
+	\item the intersection of $\mC$ with each face of $G$ is path-connected.
+\end{itemize}
+
+For example, curve $\mC$ in Figure~\ref{fig:notflarb} is not flarbable since the intersection between its interior (shaded green) and the highlighted face (red) consists of two disconnected parts. In Figure~\ref{fig:flarb} curve $\mC'$ is flarbable.
+
+
+Given a graph $G$ and a curve $\mC$ flarbable for $G$, the \emph{flarb} operation is, informally, removing part of $G$ that is inside $\mC$ and replacing it with $\mC$. Formally, the flarb operation for $G$ and $\mC$ is defined as follows (see Figure~\ref{fig:flarb}, Figure~\ref{fig:afterflarb}):
+
+\begin{itemize}
+	\item For each edge $e_i \in G$ that intersects $\mC$ let $u_i$ be its vertex lying inside $\mC$ and $v_i$ its vertex outside $\mC$. Create a new vertex $w_i = \mC \cap e_i$ and connect it to $v_i$ along $e_i$.
+	\item Connect consecutive vertices $w_i$ along $\mC$.
+	\item Delete all the vertices and edges inside $\mC$.
+\end{itemize}
+
+Let $\mG (G,\mC)$ denote the graph obtained by applying the flarb operation to graph~$G$ and curve~$\mC$.
+
+\begin{lemma} The following holds for graph $\mG ( G, \mC )$: \begin{itemize}
+	\item[(a)] $\mG ( G, \mC )$ has at most two more vertices than $G$ does;
+	\item[(b)] $\mG ( G, \mC )$ is a 3-regular planar graph;
+	\item[(c)] $\mG ( G, \mC )$ has at most one more face than $G$ does.
+\end{itemize}\end{lemma}
+
+\begin{proof}
+	Items (a) and (b) are proved in~\cite{DBLP:journals/dcg/AllenBIL17}, Lemma 2.2. To prove (c) note that there is one new face bounded by the cycle added along $\mC$ while performing the flarb. All the other faces of $G$ are either deleted, left intact, or cropped by $\mC$; these operations obviously do not increase the number of faces.
+\end{proof}
+
+\begin{theorem}[\cite{DBLP:journals/dcg/AllenBIL17}] \label{thm:existsFlarb}
+	Let $G$ be a graph of the Voronoi diagram of a set of $N-1$ sites $s_1 \ldots s_{N-1}$. For any new site $s_N$ there exists a flarbable curve $\mC$ such that the graph of the Voronoi diagram of sites $s_1 \ldots s_N$ is $\mG (G, \mC)$.
+\end{theorem}
+
+\subsubsection{Cost of the Flarb}
+
+We want to analyze the number of structural changes that a graph undergoes when we apply the flarb operation to it. There are two basic combinatorial operations on graphs:
+
+\begin{itemize}
+	\item \emph{Link} is the addition of an edge between two non-adjacent vertices.
+	\item \emph{Cut} is the removal of an existing edge.
+\end{itemize}
+
+Other combinatorial operations, for example insertion of vertex of degree 2, are assumed to have no cost.
+
+\begin{definition}
+	$\cost (G, \mC)$ is the minimum number of links and cuts needed to transform $G$ into $\mG (G, \mC)$.
+\end{definition}
+
+Note that sometimes there are less combinatorial changes needed than the number of edges intersected by $\mC$. Consider edges $e_1$, $e_2$ of $G$ crossed consecutively by $\mC$ and edge $n$ adjacent to them that reappears in $\mG (G, \mC)$ as a part $n^*$ of $\mC$. Then $n^*$ can be obtained without any links or cuts by lifting $n$ along $e_1$ and $e_2$ until it coincides with $n^*$ or (which is the same) shrinking $e_1$ and $e_2$ until their endpoints coincide with their intersections with $\mC$ (see Figure~\ref{fig:costfree}). We will call it {\itshape preserving operation}.
+
+
+\begin{theorem}[\cite{DBLP:journals/dcg/AllenBIL17}]
+	For a flarbable curve $\mC$, it holds that \[ \cost (G, \mC) \le 12|\mathcal S (G, \mC)| + 3|\mathcal B (G, \mC)| + O(1). \]
+	Where
+	\begin{itemize}
+		\item $|\mathcal B (G, \mC)|$ is the number of faces of $G$ wholly contained inside $\mC$ ($g$ is such a face on Figure~\ref{fig:flarb}).
+		\item $|\mathcal S (G, \mC)|$ is the number of \emph{shrinking} faces~— i.e., the faces whose number of edges decreases when flarb operation is applied (face $f$ is shrinking on Figure~\ref{fig:flarb}–\ref{fig:afterflarb}).
+	\end{itemize}
+\end{theorem}
+
+The following upper bound can be used to evaluate the number of combinatorial changes needed to update the graph of a Voronoi diagram when a new site is inserted.
+
+\begin{theorem}[\cite{DBLP:journals/dcg/AllenBIL17}] \label{thm:amorCost} 
+	Consider one insertion of a new site to a Voronoi diagram $V$\!\!.
+\begin{itemize}
+	\item The number of cells of $V$\!\! undergoing combinatorial changes is $O(\noh )$ amortized in a sequence of insertions;
+	\item There are a constant number of combinatorial changes per cell;
+	\item The cells of $V$\!\! with combinatorial changes form a connected region.
+\end{itemize}
+\end{theorem}
+
+By {\itshape a change in cell} we always mean a combinatorial change, that is a {\itshape link} or a {\itshape cut}.
+
+\subsection{The coin problem}
+
+\input{input/coins}
+
+\subsection{Gluings of squares}
+
+Given a collection of 2D polygons, a \emph{gluing} describes a closed surface by specifying how to glue each edge of these polygons onto another edge. We consider only proper gluings, where only segments of equal lengths can be glued together. The following theorem is crucial in that it establishes the connection between gluings and convex polyhedra:
+
+\begin{theorem}[Alexandrov, 1950,~\cite{alex}]
+\label{thm:alexandrov}
+	If a gluing is homeomorphic to a sphere and the sum of angles at each of its vertices is at most $360^\circ$ then there is a single convex polyhedron $P$ that can be glued from this net.
+\end{theorem}
+
+Note that the polygons of the gluing may be folded in order to glue the polyhedron.
+
+There is no known exact algorithm for reconstructing the 3D polyhedron.
+It is known that the problem of reconstructing the polyhedron can be
+reduced to a system of partial differential equations~\cite{kpd09-approx}.
+Still this method does not produce the exact answer, and there is no
+known algorithm for it that works faster than pseudopolynomial in $n$,
+$n$ being the number of vertices. Sometimes the coordinates of the
+polyhedron, even if its general shape is known, can not be
+expressed as closed formulas~\cite{bannister2014galois}.
+
+Enumerating all possible valid gluings is also not an easy task. Demaine et al.~\cite{DDLO02} showed that for any even $n$ there is a polygon with $n$ vertices that has $2^{\Omega (n)}$ gluings: that is a star with two additional vertices on midpoints of edges half perimeter from one another. So it is also important to estimate the number of gluings of the collection of polygons under consideration.
+
+Complete enumerations of gluings and the resulting polyhedra are only known for very specific cases such as the Latin cross~\cite{ddlop99}, a single regular convex polygon~\cite{DO07}, and a collection of regular pentagons~\cite{alz-penta-jip,alz-penta-jcdcggg} glued edge-to-edge.
+
+The case when the polygons to be glued together are all congruent regular $k$-gons, and the gluing is edge-to-edge, was studied recently for $k \ge 6$~\cite{kl17-hex}. The aim of Section~\ref{sec:sqglue} is to study the case of $k=4$: namely, to {\it enumerate} all valid gluings of squares and {\it classify} them up to isomorphism.
+
+\subsubsection{Chen—Han algorithm for gluings of squares}
+
+It is shown~\cite{DO07} that polyhedra are isomorphic if the lengths of shortest geodesic paths between their vertices of nonzero curvature coincide. Thus, the problem of finding out if two gluings are isomorphic can be reduced to calculating the pairwise geodesic distances between vertices of a gluing. Algorithm we are using for this in Section~\ref{sec:sqalg} is the Chen—Han algorithm~\cite{chen-han}.
+
+The idea of the algorithm is to project a cone of all possible paths from the source onto the polygons of the gluing. For $n$ faces, this algorithm runs in $O(n^2)$ time. To apply it for arbitrary edge-to-edge gluings of squares, it has to be proven that the running time is preserved. We make use of a Lemma that was proved in the Bachelor's thesis.
+
+\begin{lemma}[\cite{bachelors,squares-yrf}] \label{lm:shortestSquare}
+	If $T$ is a square of the gluing and $\pi$ is a geodesic shortest path between two vertices of the gluing then the intersection between $\pi$ and $T$ is of at most 5 segments.
+\end{lemma}
+
+This lemma implies the following theorem.
+
+\begin{theorem} \label{thm:chruntime}
+	The isomorphism between two edge-to-edge gluings of at most $n$ squares can be tested in $O(n^2)$ time.
+\end{theorem}
+
+\subsection{PCB routing}
+
+A printed circuit board that consists of several layers can be thought of as a disjoint union of several metric spaces, distance between points of distinct spaces being defined additionally. The main problem is as follows. Given several layers of a printed circuit board {\it (PCB),} route all the wires so that certain design rules are respected and wires have small length, small number of bends, and small number of transitions between layers. There is of course a general problem of connecting points $a_1, \ldots, a_n$ with $b_1, \ldots, b_n$ pairwisely and optimally, but it is too difficult to solve practically, and probably is {\bf NP}-hard. Most routing algorithms these days rely on empirical data only.
+
+\section{Purpose of the study}
+
+	The purpose of this study is to find answers to the following open problems concerning metric spaces:
+
+\begin{enumerate}
+	\item Find out if there exist algorithms for explicit incremental Voronoi diagrams whose running time is between \(O(n^{3/4})\) and \(O(n^{1/2})\).
+	\item Find a suitable variant of Voronoi diagrams for multilayer PCB boards and study their properties.
+	\item Find an appropriate data structure for maintaining and answering queries about divisions of space by arbitrary surfaces.
+	\item Estimate the number of convex polyhedra that can be glued using at most \(n\) congruent regular triangles, hexagons, or quadrilaterals.
+	\item Find a polynomial time approximation algorithm for the PCB routing problem.
+	\item Find weights for the parameters such that the corresponding multicriterion optimisation problem outputs results that are applicable in practice.
+\end{enumerate}
+
+\section{Methodology}
+
+\subsection{Voronoi diagrams}
+
+One can try to employ the well-known «divide and conquer» strategy to devise an algorithm for the incremental diagram: divide all the sites into two halves by a line and update only the half of the diagram that receives the new site. It can be shown that adding a line as a site to the diagram still allows for a $O(\sqrt{n})$ upper bound on the number of combinatorial changes per insertion. This means that, theoretically, «divide and conquer» is a desirable approach.
+
+One possible direction of research is to look into generalisation of algorithms and techniques for both implicit and explicit diagrams to various non-Euclidean metrics, for example those implied by the PCB problem. There are some hints that the algorithms will still work, but there can be certain underwater rocks in the process of translating the algorithm from one metric to another.
+
+Another generalization to look at is considering not Voronoi cells, but any regions of space whose borders are arbitrary surfaces that intersect rarely enough, for example instance surfaces. One can find out what properties hold for such setups and what algorithms and data structures can be developed to work with them.
+
+\subsection{Nets}
+
+A net consisting of several regular polygons can be associated with a set of polygons drawn on a corresponding grid, edges of those polygons divided into pairs. The set of polygons should satisfy certain conditions: each of them being convex, the sum of angles of all the polygons at any vertex not exceeding \(360^\circ\), the edges in a pair having equal projections on coordinate axes. Then the estimate of the number of valid nets really boils down to the estimate of the number of drawings, which is a simple combinatorial problem.
+
+\subsection{PCB-s}
+
+The problem of finding a shortest path between two points in this setting can be thought of as multicriterion optimisation problem~\cite{handbook}: we are trying to optimize not only overall length of the path, but also the number of turns and the number of transitions between layers (also called {\it vias,} those are especially expensive to make).
+
+There are certain limitations that apply to the path that we can construct. First of all, only turns of $45^\circ$ (that leave an internal angle of $135^\circ$) are allowed. Second, there is minimal distance required between two adjacent wires. To some extent, we can think that there is a grid that the wires align to, but we can not use the size of this grid in the asymptotic estimations.
+
+There are of course obstacles possible to the path we are constructing. To start with, one can assume that they admit some simple shape (convex, polygonal or round). To do proper preprocessing, however, one needs to count in dynamic obstacles posed by previously routed wires.
+
+\section{Contribution}
+
+If those problems are solved, the corresponding results will be the cornerstones of the corresponding fields, since they will be the answers for well posed questions that are important and understandable. They make us closer to finding constructive solutions to the Alexandrov's problem and help plan routes and process geodesic data faster and better.
+
+The problem of PCB routing is tightly connected with several industrial projects that need feasible routing algorithms to work with.
+
+\bibliography{bib/boris,bib/boris-bac,bib/chan,bib/john}{}
+\bibliographystyle{plain}
+
+\end{document}
