@@ -1,0 +1,227 @@
+In this section, we consider a Voronoi diagram whose sites are a straight line $\ell$ and several points to one side from~$\ell$. Without loss of generality, $\ell$ is horizontal and all the sites are above~$\ell$. We also assume that the sites are {\it in general position:} \begin{itemize}
+	\item no three lie on a common line,
+	\item no four lie on a common circle,
+	\item $x$-coordinates and $y$-coordinates of no two sites coincide.
+\end{itemize}
+
+\begin{figure}[h] \centering
+	\includegraphics[height=4.7cm]{ipe/bl-ex}
+	\caption{A Voronoi diagram for several point sites and a straight line}
+	\label{fig:bl-ex}
+\end{figure}
+
+An example of such diagram can be seen in Figure~\ref{fig:bl-ex}. Insertion of a new point site is considered, and we want to estimate the number of combinatorial changes that happen in the diagram. We are mainly interested in the changes that concern {\it the beach line:}
+
+\begin{definition}
+	\emph{The beach line} is the border of the cell of $\ell$. It is a curve comprised of parabolas whose focal points are point sites.
+\end{definition}
+
+We know from~\cite{incremental-vd} that for a Voronoi diagram of $n$ point sites the amortized number of combinatorial changes per insertion is $O (\sqrt{n})$. We aim at proving a similar estimate for the case when one site is a line.
+
+\subsection{Voronoi diagrams and \Ds~sequences}
+
+When dynamic Voronoi diagrams are studied, it is necessary to find the operations that can describe what happens to the Voronoi diagram when a new site is inserted. When all the sites are points, those operations are links and cuts. In this section, we describe an operation that can be used to express transformations in the beach line. The operation is called {\it relabel.}
+
+We view the beach line as a sequence of sites which are the focal points of the corresponding parabolas. One site can enter this sequence several times.
+
+\begin{definition}
+	Let $s$ be a site of the Voronoi diagram, and $\sn$ be the site that is inserted. Let $I$ be a segment or a ray of $\ell$. Then $\rlbl(s,\sn,I)$ is replacing every occurence of $s$ with $\sn$ in the beach line above $I$.
+\end{definition}
+
+A relabel can be applied for any two elements of a sequence and a segment, however in this paper we will only deal with relabels that arise from building the beach line adding parabolas one-by-one. An example of a relabel can be seen in Figure~\ref{fig:relabel}: letters $s$ are replaced with letters $s^\prime$ inside segment $I$.
+
+\input{img/relabel}
+
+When a point site $\sn$ is inserted into a Voronoi diagram, several edges of the graph of the diagram that belonged to a cell of another site, now belong to the cell of $\sn$. However, this can be accounted for by a single link or cut. Similarly, when the parabola of $\sn$ appears in several places in the beach line instead of $s$, this can be accounted for by a single relabel.
+
+\begin{figure}[h] \centering
+	\includegraphics[height=5.5cm]{ipe/combchange}
+	\caption{The change that occurs in the beach line when a new site is inserted can be expressed as two relabels}
+	\label{fig:combchange}
+\end{figure}
+
+An example can be seen in Figure~\ref{fig:combchange}. Site $\sn$ is inserted; old beach line is shown orange, and new beach line is shown black. Three parabolas are drawn fully: those correspond to $s_1$, $s_2$, and $\sn$. The change in the beach line of the Voronoi diagram caused by the insertion can be expressed as two relabels: $\rlbl(\sn,s_1,I_1)$ and $\rlbl(\sn,s_2,I_2)$ — the parabola of $\sn$ is closer to $\ell$ than the parabolas of $s_1$ and $s_2$, that is why occurences of $s_1$ and $s_2$ are replaced with $\sn$. Note that the first relabel affects two occurences of $s_1$ in the beach line above $I_1$.
+
+Let us consider the sequence of sites corresponding to the parabolas of the beach line in their respective order, denote it by $S$. Sequence $S$ has one important property.
+
+\begin{definition}[\cite{sadavschi}]
+	A sequence is called a \Ds~sequence of order 2 if it has no subsequences of the form
+	$\ldots a \ldots b \ldots a \ldots b \ldots$,
+	and no two consecutive letters of it are equal.
+	\Ds~sequences of no other orders than 2 are considered in this paper, so we will further omit writing «of order 2».
+\end{definition}
+
+\begin{lemma}\
+	Sequence $S$ of sites corresponding to the parabolas of the beach line is a \Ds~sequence.
+\end{lemma}
+
+The inverse also holds and is stated by the following Lemma.
+
+\begin{lemma}[\cite{sadavschi}] \label{lm:dsparab}
+	For every \Ds~sequence $S$ such that its first and last letters are equal, there exists such a configuration of point sites that the sequence corresponding to the beach line of the Voronoi diagram of this configuration is $S$.
+\end{lemma}
+
+We will further only consider \Ds~sequences with equal first and last letters. After all, each sequence can be made such a sequence by adding a letter $\epsilon$ to its front and to its back.
+
+We can consider relabel as an operation on an arbitrary \Ds~sequence, replacing each occurence of one letter with another letter inside a given segment. Note that we can construct any \Ds~sequence using only relabels.
+
+\begin{definition}
+	Let $S$ be a \Ds~sequence over the alphabet $\{ s_1, \ldots, s_n \}$. Define $\Rel(S)$ as the shortest sequence of relabel operations such that\begin{enumerate}
+	\item $S$ can be obtained by applying the relabels in $\Rel(S)$ consecutively to the sequence $s_1$ of length~$1$,
+	\item if $i < j$, all relabels with $s_i$ as the second argument occur in $\Rel(S)$ before all relabels with $s_j$ as the second argument.\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Let $S$ be a \Ds~sequence over the alphabet $\{ s_1, \ldots, s_n \}$. $\Rel_j (S)$ is a subsequence of $\Rel (S)$ where the second argument is equal to $s_j$. $S_j$ is the \Ds sequence obtained by applying $\Rel_2 (S)$, $\ldots$, $\Rel_j (S)$ consequtively to the sequence $s_1$ of length one.
+\end{definition}
+
+\begin{lemma}
+	For each \Ds~sequence $S$ there exists $\Rel(S)$.
+\end{lemma}
+
+\begin{proof}Consider the configuration of sites and parabolas corresponding to $S$. Such a configuration exists by Lemma~\ref{lm:dsparab}. Add the parabolas of this configuration to it one-by-one and note that every addition of a parabola can be expressed as a set of relabels. All the properties that have to hold for $\Rel(S)$ also hold for the sequence we constructed.\end{proof}
+
+We will be proving the following Theorem:
+
+\begin{theorem} \label{thm:amortsqrt}
+	For any \Ds~sequence $S$ over the alphabet $\{ s_1, \ldots, s_n \}$ the length of $\Rel(S)$ is $O (n \sqrt n)$.
+\end{theorem}
+
+This Theorem means that the average number of relabels per addition of a letter is $O(\sqrt{n})$.
+
+\subsection{Tree representation of a \Ds~sequence}
+
+Over the history of the studies of \Ds~sequences, several ways to connect them to trees and other data structures were suggested~\cite{dstrees,dssplay}. In this thesis, we consider another natural yet new approach.
+
+Consider two letters $a$, $b$ in a \Ds~sequence $S$. Since no alternations of the form
+$\ldots a \ldots b \ldots a \ldots b \ldots$
+are allowed, two cases are possible: \begin{enumerate}
+	\item all occurences of $a$ are located in $S$ before all occurences of $b$ (or vice versa),
+	\item all occurences of $b$ are located in $S$ between two consecutive occurences of $a$ (or vice versa).
+\end{enumerate}
+
+All the other configurations yield at least one anternation of which there can be none in a \Ds~sequence.
+
+\begin{definition}
+	We say that letter $a$ of a \Ds~sequence $S$ \emph{surrounds} letter $b$ if all occurences of $b$ are located in $S$ between two consecutive occurences of $a$.
+\end{definition}
+
+\begin{lemma} \label{lm:dsacycl}
+	There exist no letters $a_1, \ldots a_m$ in a \Ds~sequence $S$ such that \begin{itemize}
+	   \item $a_1$ surrounds $a_2$,
+	   \item $a_2$ surrounds $a_3$,\\ $\ldots$
+	   \item $a_{m-1}$ surrounds $a_m$,
+	   \item $a_m$ surrounds $a_1$.
+	\end{itemize}
+\end{lemma}
+
+\begin{proof}The condition above would mean that all occurences of $a_1$ are located between two consecutive occurences of $a_m$, and all occurences of $a_m$ are located between two consecutive occurences of $a_1$. We arrive at a contradiction.\end{proof}
+
+Let us connect by an oriented edge each letter to each letter it surrounds. Lemma~\ref{lm:dsacycl} means that the graph we obtain is acyclic. That means we can perform a topological sort on it and find direct descendants of each vertex $a$: those surrounded by $a$ but not surrounded by any other vertex surrounded by $a$.
+
+\input{ipe/parabconfig-tex}
+
+What we obtain by connecting each vertex to each its direct descendant is a tree. An example of a tree corresponding to a \Ds~sequence and a configuration of sites and parabolas corresponding to it can be seen in Figure~\ref{fig:parab-config}.
+
+The correspondence between \Ds sequence and trees defined this way is not one-to-one: the same tree corresponds to the sequences $axaya$ and $axya$. However, this can be fixed by adding walls inside nodes, and in this thesis we will be using the same notation for letters in the sequence and nodes in the tree, applying notions such as «number of occurences» and «number a children» to a single name. Define the size of a vertex in a tree:
+
+\begin{definition} \label{def:dssize}
+	For letter $a$ in a \Ds~sequence $S$ we denote by $\size(a)$ the number of children of $a$ in the tree corresponding to $S$ plus one.
+\end{definition}
+
+\begin{lemma} \label{lm:sumsizes}
+	For a \Ds~sequence $S$ over the alphabet $\{ s_1, \ldots, s_n \}$,
+	\[ 2n-1\ \ge\ \sum\limits_{i=1}^{n} \size(s_i)\ \ge\ \text{\rm length} (S). \]
+\end{lemma}
+
+\begin{proof} To prove the first inequality, let us give one coin to the root of the tree, and two coins to every other letter. In total we have given at most $2n-1$ coins. Let each letter pass one of its coins to its parent in the tree. Now each letter has one coin given to it initially, and one coin from each of its children. This makes the total number of coins be equal to $\sum \size(s_i)$.
+
+For the second inequality, note that the number of occurences of a letter is at most the number of its children plus one, since there can not be two equal letters in a row, and two occurences of a letter $a$ must be separated by at least one child of $a$.
+\end{proof}
+
+\subsection{The order of relabels}
+
+Now that we have connected \Ds~sequences to trees, we will consider changes of the tree corresponding to a sequence when a relabel is applied to it. This will help us visualize the operations, define and estimate the potential function, and better illustrate the changes in a sequence.
+
+\input{img/impossibleRlbl}
+
+\begin{lemma} \label{lm:contigtrees}
+	The set of letters $s_i$ such that $\rlbl (s_i, s_j, \cdot) \in \Rel_j (S)$ is a union of several contiguous subtrees whose roots are children of a single vertex $R_j$ in the tree corresponding to $S_{j-1}$.
+\end{lemma}
+
+\begin{proof} Consider two vertices that are relabelled. If one of them is an indirect descendant of the other, then the vertices between them must also be relabelled. Otherwise there is a non-relabelled vertex that surrounds the lower relabelled vertex. This yields an alternation $s_j a s_j a$ in $S_{j}$, see Figure~\ref{fig:impossibleRlbl}a. Thus, the vertices that are relabelled form contiguous subtrees.
+
+	If two roots of such subtrees are not children of a single vertex, there is a non-relabelled ancestor of one of them that is not an ancestor of the other, call it $a$. This yields an alternation $s_j a s_j a$ in $S_{j}$, see Figure~\ref{fig:impossibleRlbl}b. This is clearly a contradiction. \end{proof}
+
+\input{img/posRlbl}
+
+An example of a possible set of vertices that can be relabeled in $\Rel_j (S)$ (i.\,e. that satisfies the condition of Lemma~\ref{lm:contigtrees}) can be seen in Figure~\ref{fig:posRlbl}.
+
+Without loss of generality, we assume that relabels in $\Rel_j (S)$ are applied from top of the tree down, level by level, from left to right. This order of relabels helps us make sure we avoid any alternations on intermediate steps when not all relabels in $\Rel_j (S)$ are yet applied, since at any step the set of vertices that have been relabelled satisfies the condition of Lemma~\ref{lm:contigtrees}. Also this order is convenient for our proof of the $n\sqrt{n}$ bound.
+
+\begin{lemma} \label{lm:srreceive}
+	When relabels in $\Rel_j (S)$ are applied, only two nodes of the tree can increase in size:~$s_j$ and~$R_j$.
+\end{lemma}
+
+\begin{proof} When relabels are applied, some occurences of some letters are replaced with $s_j$. Suppose a child $b$ of a vertex $a$ is not a child of $a$ anymore. It means a relabel has been applied to $a$ or another descendant of $a$.
+
+	If the relabel is applied to $a$, then $b$ can find itself between two occurences of $s_j$ or between an $s_j$ and an $a$. In the first case $b$ is now a child of $s_j$, and in the second case it is a child of $R_j$, since it is neither surrounded by $s_j$ nor by $a$, and $R_j$ is the parent of $s_j$.
+
+	If the relabel is not applied to $a$, than the only other letter that can happen to surround $b$ is $s_j$: $a$ was the closest to surround $b$, and $s_j$ is the only letter of which there can be new occurences. \end{proof}
+
+\subsection{Inserts and length of a \Ds sequence}
+
+One would want to say that when $\rlbl (s_i, s_j, I)$ is applied, $\size (s_i)$ decreases: $s_j$ either steals some children from $s_i$ or wholly replaces the only occurence of $s_i$. However, there is one case when a relabel does not reduce $\size (s_i)$.
+
+\input{ipe/insert-ex}
+
+\begin{definition}
+	An insert is a relabel that does not reduce the size of the node it is applied to.
+\end{definition}
+
+An example of an insert can be seen in Figure~\ref{fig:insert-ex}. We will denote by $\Inse_i$ and $\Rlbl_i$ the numbers of relabels in $\Rel_i$ that are and are not inserts, respectively. We can not use the argument that inserts make sizes of many distinct nodes decrease, that is why we will try to take the length of the \Ds sequence into consideration. For this, we will describe what happens to the length of a sequence and to the sizes of nodes in the tree corresponding to it when several inserts and relabels are applied.
+
+\begin{lemma} \begin{enumerate}
+	\item When an insert is applied to a \Ds sequence, the length of the sequence increases by 1.
+	\item When a relabel that is not an insert is applied to a \Ds sequence, the length of the sequence may decrease, but by at most 2.
+\end{enumerate} \end{lemma}
+
+\begin{proof}[Proof of 1)] If $\rlbl (s_i, s_j, I)$ is an insert, it can in fact be expressed as an addition of one occurence of $s_j$ to the \Ds sequence. Note that $s_j$ can only appear once inside $I$, since otherwise it would steal children from $s_i$ inside $I$. Furthermore, $s_j$ can not replace a single whole occurence of $s_i$, since the children of $s_i$ that are incident to that occurence will become children of $s_j$.
+
+{\itshape Proof of 2).} If the length of the sequence decreases when $\rlbl(s_i,s_j,I)$ is applied, it means that some occurences of $s_j$ that appear as a result of the relabel are adjacent to some existing occurences of $s_j$. Since we are performing relabels from the top of the tree down, this can only happen to the two extreme occurences of $s_i$ if they are being relabelled: they should be adjacent to some occurences of $s_j$, since $s_j$ can either surround or have a common parent with $s_i$ at the moment of $\rlbl(s_i,s_j,I)$. \end{proof}
+
+\begin{corollary} \label{cor:rlblLength}
+	The increase in length of the \Ds sequence after all the operations from $\Rel_j (S)$ is applied is at least $\Inse_i\ -\ 2 \cdot \Rlbl_i$.
+\end{corollary}
+
+\subsection{Proof of amortized bound}
+
+\newcommand{\rjsz}{\left| \Rel_j (S) \right|}
+
+\begin{proof}[Proof of Theorem~\ref{thm:amortsqrt}] Define the potential function for a \Ds sequence $S$ over the alphabet $\{ s_1, \ldots, s_n \}$ as
+   \[
+	\Phi = 3 \cdot \sum\limits_{i=1}^n
+	\min\left\{ \size(s_i), 2 \sqrt{n} \right\}
+	- \text{length} (S).
+   \]
+
+We are going to estimate $\rjsz + \Phi_j - \Phi_{j-1}$. We denote by $\size_j (s_i)$ the size of the vertex $s_i$ in the tree corresponding to the sequence $S_j$. \begin{align*}
+	\rjsz &+ \Phi_j - \Phi_{j-1}\ =\ 
+	\Inse_j + \Rlbl_j + \\
+	& +\ 3 \cdot \sum\limits_{i=1}^n
+	\min\left\{ \size_j (s_i), 2 \sqrt{n} \right\}\,-\,%
+	3 \cdot \sum\limits_{i=1}^n
+	\min\left\{ \size_{j-1} (s_i), 2 \sqrt{n} \right\}\ - & (*) \\
+	& -\ (\text {length} (S_j)\ -\ \text {length} (S_{j-1})) & (**)
+\end{align*}
+
+By Lemma~\ref{lm:srreceive} we can estimate $(*)$ from above by $2 \sqrt{n} - (\Rlbl_j - \sqrt{n})$: only $s_j$ and $R_j$ can increase in size, and all the relabels that are not inserts reduce the size of the vertex that they are applied to (which are distinct for all distinct inserts). However, at most $\sqrt{n}$ relabels applied to the vertices whose size is at least $2 \sqrt {n}$ (due to Lemma~\ref{lm:sumsizes}, there can only be $\sqrt{n}$ such vertices) do not reduce the value of the potential.
+
+By Corollary~\ref{cor:rlblLength}, we can estimate $(**)$ from above by $-\Inse_j + 2\Rlbl_j$. The final estimate for the whole sum is \begin{align*}
+	\rjsz + \Phi_j - \Phi_{j-1}\ \le\ & \Inse_j\ +\ \Rlbl_j + \\
+	& +\ 9\sqrt{n}\ -\ 3\Rlbl_j\ - \\
+	& -\ \Inse_j\ +\ 2\Rlbl_j\ = \\
+	=\ & 9\sqrt{n}.
+\end{align*}
+
+$\Phi_n - \Phi_1$ is bounded by $3n$, and all the other values of the potential cancel out. This means that $\left| \Rel (S) \right| = O(n \sqrt{n})$. \end{proof}

@@ -252,7 +252,7 @@
 
 121. Recurrence — a way to introduce a function such that the value f(n) is calculated using values on smaller arguments
 
-122. Canonical subset of v — subset of points stored in the leaves of the subtree rooted at a node v
+122. Canonical subset of v — the subset of points stored in the leaves of the subtree rooted at a node v
 
 123. Fractional cascading — a technique to improve the running time of a range searching tree
 
@@ -279,3 +279,129 @@
 134. Voronoi assignment model — the model where every point is assigned to the nearest site
 
 135. Cartesian coordinates — a system assigning a pair of numbers to each point in the plane
+
+════════════════════════════════
+
+136. Metric — a symmetric function that is zero on coinciding elements and satisfies the triangle inequality
+
+137. Metric space — a set equipped with a metric
+
+138. Triangulation — a decomposition of an object into a set of triangles or simplices
+
+139. Face — a polygon of the highest possible dimension that belongs to a graph / to a surface
+
+140. Edge — an intersection of two faces
+
+142. Incident — two objects of different priorities next to each other
+
+143. Adjacent — two objects of equal priorities next to each other
+
+144. Quadrilateral — a polygon with four sides
+
+145. Tight bound — a bound that is reachable and thus can not be improved
+
+146. Iterative — a process that is repeated several times
+
+148. Nearest neighbor — a site such that the distance from it to the query point is minimal
+
+149. Residue — a number between 0 and n-1 that is congruent to the given number modulo n
+
+150. Power series — a formal sum of powers of a variable with various coefficients
+
+151. Congruence — any sensible equivalence relation
+
+152. Convex domain — a domain such that any segment connecting two its points lies inside it
+
+153. Connected space — a space that cannot be represented as a union of two open sets
+
+154. Path connected space — a space where there exists a path between any two points
+
+155. Simply connected space — a space where every loop can be contracted
+
+156. A loop — a path from a point to itself
+
+157. Primality test — an algorithm testing if a given number is prime
+
+158. Turing machine — a model with a finite number of states, an infinite tape and a set of rules describing transition between states
+
+159. Cellular automaton — a set of cells where the state of a cell changes at each step in accordance with the states of its neighbors
+
+160. Markov's algorithm — a Turing-complete model comprised only of replacement rules
+
+161. Winning position — a position from which a turn can be taken into a losing position
+
+163. Losing position — a position from which any turn leads to a winning position
+
+164. Voronoi diagram — a subdivision of the plane according to the nearest neighbor queries.
+
+165. Flarb — a combinatorial operation of adding a new face to a graph.
+
+166. Tree — a connected graph with no cycles.
+
+167. Pendant vertex — a vertex of degree 1.
+
+168. Euler cycle — a cycle that visits each edge of a graph exactly once.
+
+169. Hamiltonian cycle — a cycle that visits each vertex of a graph exactly once.
+
+170. Search — a problem of outputting the piece of data assigned to a given key
+
+171. Sorting — a problem of placing several numbers or keys in the ascending order.
+
+172. RAM machine — a model that can access any memory cell in constant time
+
+173. Forest — a possibly disconnected graph with no cycles.
+
+174. Dual graph — a graph whose vertices are faces of G and whose edges are edges incident to these faces
+
+175. Language — a set of strings that one usually wants to be able to distinguish
+
+176. Computational hierarchy — a separation of problems into levels according to the number of quantifiers preceding a computable problem
+
+177. Motion planning — a problem of assigning a strategy to several moving robots such that no collisions happen and total traveled distance is minimal
+
+178. Geodesic center — a point of the set such that maximal geodesic distance from it to a point of the set is minimised
+
+179. Noncooperative game — a game where players take their turns simultaneously, and the prize is split immediately afterwards
+
+180. Network — a graph with a large number of vertices and a set of rules that apply to its connectivity
+
+181. PCB — a printed contact board that is used for connecting several electronic devices. It is comprised of several sheets on which tracks are laid
+
+182. Delaunay triangulation — a triangulation in the plane such that the circumcircle of any triangle does not contain any vertices but of this triangle
+
+183. Euclidean shortest path problem — a problem of connecting two points in a Euclidean space (with polyhedral obstacles) by a shortest path
+
+184. Mesh — a subdivision of an area into cells of simple shapes
+
+185. Ray tracing problem — given a set of objects in space, produce a data structure that efficiently outputs which object a query ray intersects first
+
+186. Flipping — an operation replacing one diagonal of a quadrilateral in a triangulation with the other diagonal
+
+187. Divide-and-conquer algorithm — an algorithm whose initial step is splitting the query set into two roughly equal parts
+
+188. Farthest-first traversal — a sequence of points where the first point is selected arbitrarily and each successive point is as far as possible from the set of previously-selected points
+
+189. Prefix — a part of the sequence from the beginning to a certain point
+
+190. Suffix — a part of the sequence from a certain point to the end
+
+191. Delaunay refinement — adding vertices to a triangulation in a way such that the triangulation obeys certain quality requirements afterwards.
+
+192. Pigeonhole principle — a statement concerning not being able to fit n+1 pigeons into n holes
+
+193. Osculating circle — the circle passing through the point of a curve that has the same curvature as the curve at this point
+
+194. Source vertex — a vertex in an oriented graph with no incoming edges
+
+195. Sink vertex — a vertex in an oriented graph with no outcoming edges
+
+196. Triangle strip — a sequence of triangles where each next triangle shares an edge with the previous one
+
+197. Subdivision of a graph — a graph obtained from the given one by adding vertices of degree 2 in the interior of the edges
+
+198. Regular graph — a graph in which all the vertices have the same degree
+
+199. Flow on a graph — an assignment of a number and an orientation to each edge of the graph such that the sum of the numbers at each vertex is zero
+
+200. Hashing — assigning certain numbers to strings in such a way that it becomes easy to check if two long strings differ
