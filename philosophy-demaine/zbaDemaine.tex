@@ -1,6 +1,6 @@
 \documentclass[a4paper,12pt]{article}
 
-\usepackage{graphicx,amssymb,amsmath,indentfirst}
+\usepackage{graphicx,amssymb,amsmath,indentfirst,hyperref}
 
 \usepackage[margin=2.25cm]{geometry}
 \parindent=0.5in \parskip=3.5mm \linespread{1.26}
@@ -41,9 +41,9 @@ His father had been a visual artist; he had to attend Erik's classes at the univ
 
 Demaine's research interests range across wide variety of fields. They include algorithms and data structures, games and their computational difficulty, improving web searches, geometry of organic molecules. As any mathematician whose variety of subjects is this wide, Demaine cannot but pursue art in different forms: origami, movie producing, glassblowing.
 
-Demaine's book on Geometric folding algorithms [ref] is considered the leading authority when it comes to computational origami, nets, gluing of polyhedra, linkages and rigid constructions.
+Demaine's book on Geometric folding algorithms~\cite{DO07} is considered the leading authority when it comes to computational origami, nets, gluing of polyhedra, linkages and rigid constructions.
 
-In this work we are going to cover Erik Demaine's biography and get a glimpse of his scientific results and discoveries that helped shape modern computational geometry. The sources we are using are his recent interview [ref], his books and articles.
+In this work we are going to cover Erik Demaine's biography and get a glimpse of his scientific results and discoveries that helped shape modern computational geometry. The sources we are using are his recent interview~\cite{yt}, his books and articles.
 
 \section{Chidhood}
 
@@ -79,7 +79,7 @@ The most general problem in the origami setting is given a 3D shape, produce a s
 
 Another problem is the so-called fold-and-cut problem: given a polygon \(P\) drawn on a piece of paper, can it be made by folding this piece and then making a single straight-line cut. After unfolding the piece back it should be separated into two parts: \(P\) and the complement of \(P\). Certain cases of this problem are known for centuries and have been used as magic tricks entertaining general public.
 
-It turned out that for any polygon \(P\) obtaining it in one cut is possible [ref]. This is an example of automating a design challenge, of dedicating an algorithm or a computer program to implement it in an unmanned way.
+It turned out that for any polygon \(P\) obtaining it in one cut is possible~\cite{stcut}. This is an example of automating a design challenge, of dedicating an algorithm or a computer program to implement it in an unmanned way.
 
 Departing from origami, the studies of folding have been carried on to cover folding of proteins and robot arms. The point behind this is that we have developed numerous techniques to quickly manufacture flat sheets of various forms, yet manufacturing of 3D parts remains complicated and expensive. Therefore it is tempting to try finding a way to produce a flat shape and then fold it to get a desired 3D object. That would allow for fast making of robots of hihgly customizable shape. Robots could also assemble themselves, this is achieved by introducing motors to a shape that is foldable but still flat.
 
@@ -103,7 +103,7 @@ Curved creases provide an example of such an approach: only recently has some ma
 
 \section{Studying foldings}
 
-We mentioned before the book “Geometric Folding Algorithm” written by Erik Demaine that is cited in the first place when it comes to the studies of linkages, origamis and polyhedra. In this section we give a brief review of the core statements it is biult around.
+We mentioned before the book “Geometric Folding Algorithm”~\cite{DO07} written by Erik Demaine that is cited in the first place when it comes to the studies of linkages, origamis and polyhedra. In this section we give a brief review of the core statements it is biult around.
 
 The studies of foldings done by Demaine can be logically divided according to the dimension of the object in question: one-dimensional linkages, two-dimensional pieces of paper, three-dimensional polyhedra. Demaine also divides all the problems related to folding into two groups: design problems~— for one specific shape find if one can fold to that shape, and foldability problems~— find if a class of objects can be folded into a class of shapes.
 
@@ -131,6 +131,7 @@ While researching foldings, Demaine pioneered some techniques that have been use
 
 Erik Demaine is a scientist with unimaginably great field of view and even greater collective of coauthors, who has done a large number of groundbreaking (or\ldots groundfolding) studies and hopefully has enough time in front of him to perform even more. It would take a long list to cover all the issues looked at and resolved by him, and in this paper we tried to present a short overview of what they are and who is behind them. \newpage
 
+\bibliography{phil}{}
+\bibliographystyle{plain}
 
 \end{document}
-
