@@ -3,7 +3,7 @@
 \usepackage{graphicx,amssymb,amsmath,indentfirst}
 
 \usepackage[margin=2.25cm]{geometry}
-\parindent=0.5in \parskip=3.5mm \linespread{1.24}
+\parindent=0.5in \parskip=3.5mm \linespread{1.26}
 \footskip=7mm
 
 \usepackage[utf8x]{inputenc}
@@ -29,7 +29,7 @@
 
 \tableofcontents \vfill \eject
 
-\section{Introduction [ref]}
+\section{Introduction}
 
 It is very rare that a person is appreciated and recognized for their achievements during the period they are active. Most often it takes time for the humanity to evaluate the significance of certain accomplishments and to pay its creator back with fame.
 
@@ -101,4 +101,36 @@ Demaine suggests looking at any question from two sides: what are the mathematic
 
 Curved creases provide an example of such an approach: only recently has some mathematical progrees been made regarding them, yet they have been used as a sculpture technique for some time already.
 
+\section{Studying foldings}
+
+We mentioned before the book “Geometric Folding Algorithm” written by Erik Demaine that is cited in the first place when it comes to the studies of linkages, origamis and polyhedra. In this section we give a brief review of the core statements it is biult around.
+
+The studies of foldings done by Demaine can be logically divided according to the dimension of the object in question: one-dimensional linkages, two-dimensional pieces of paper, three-dimensional polyhedra. Demaine also divides all the problems related to folding into two groups: design problems~— for one specific shape find if one can fold to that shape, and foldability problems~— find if a class of objects can be folded into a class of shapes.
+
+Design problems can themselves be challenging and somewhat spectacular, they emphasize the geometry of selected pair of objects that are considered. On the other hand, foldabilty problems are more about computational complexity of the problem of folding.
+
+Let us describe the main problems whose answer has been the driving force of development of the whole foldability theory: \begin{enumerate}
+	\item[(1D)] Given an algebraic curve in the plane, is there some linkage such that some joint of it traces this curve?
+	\item[(2D)] Given a three-dimensional shape, find a sequence of folds and describe the pattern of creases that would allow to create an origami of this shape from a square piece of paper.
+	\item[(3D)] Given a convex polyhedron, can its surface be cut along its edges and unfolded to a plane connected not self-intersecting net?
+\end{enumerate}
+
+The first problem is very well-known, and the answer for it is positive, even though some technical polishing of the proof was been done until 2002.
+
+As for the second problem, there are no once-and-forever results obtained yet. This is in part why origami even today is an art and not a routine. There is one known algorithm that creates a base for an origami, which is a metric tree reflecting the properties of the desired object; when the base is created, refining the creases is a relatively easy part.
+
+The problem with this algorithm is that it is not proved formally that the shape that is folded using the base that is output by the algorithm does not self-intersect. However, there were many experiments carried out using different instances of the shapes that support that it is indeed the case.
+
+For the third one, the answer is known to be positive if the restriction of cuts being only along edges is removed. So there remains a hope that it is provable that the answer remains positive for more and more general cases.
+
+To cover the issues associated with these three problems a thorough classification of known results, the ones obtained by Demaine himself among them, is done in the book. Different types of linkages, foldings and origamis are listed.
+
+While researching foldings, Demaine pioneered some techniques that have been used extensively in following publications on the subject by other authors, those include, for example, the gluing tree, which is a way to describe a folding of a single polygon (i.\,e.~a net) to a polyhedron.
+
+\section{Conclusion}
+
+Erik Demaine is a scientist with unimaginably great field of view and even greater collective of coauthors, who has done a large number of groundbreaking (or\ldots groundfolding) studies and hopefully has enough time in front of him to perform even more. It would take a long list to cover all the issues looked at and resolved by him, and in this paper we tried to present a short overview of what they are and who is behind them. \newpage
+
+
 \end{document}
+
