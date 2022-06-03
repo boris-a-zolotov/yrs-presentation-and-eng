@@ -1,0 +1,16 @@
+KEYWORDS
+• Support vector machine
+• Evolutionary algorithm
+• Classification problem
+• Regression problem
+• Discrepancy
+• Learning
+• Kernel
+• Training set
+
+ABSTRACT
+	The support vector machine (SVM) is a powerful tool in machine learning. It operates by separating the points of a dataset by a surface, and then assigning a class to a point depending on its position relative to this surface.
+
+	A basic SVM utilizes a hyperplane such that the margins between it and the boundaries of the classes are the widest possible. If the classes are not linearly separable, the translation to a space of a higher dimension or the introduction of slack variables reflecting the training error are used. The SVM also can be generalized to treat more than two classes.
+
+	The authors present two methods to find the optimal separating surface. Both methods are based on applying an evolutionary algorithm that would approximate the coefficients defining the surface.
